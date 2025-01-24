@@ -1,6 +1,7 @@
 package com.mila.gamelist.dto;
 
 import com.mila.gamelist.entities.Game;
+import com.mila.gamelist.projections.GameMinProjection;
 
 public class GameMinDTO {
 
@@ -21,6 +22,15 @@ public class GameMinDTO {
         imgUrl = entity.getImgUrl();
         shortDescription = entity.getShortDescription();
     }
+
+    public GameMinDTO(GameMinProjection gameMinProjection) {
+        id = gameMinProjection.getId();
+        title = gameMinProjection.getTitle();
+        year = gameMinProjection.getReleaseYear();
+        imgUrl = gameMinProjection.getImgUrl();
+        shortDescription = gameMinProjection.getShortDescription();
+    }
+
 
     public String getTitle() {
         return title;
