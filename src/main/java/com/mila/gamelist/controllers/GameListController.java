@@ -1,0 +1,30 @@
+package com.mila.gamelist.controllers;
+
+import com.mila.gamelist.dto.GameDTO;
+import com.mila.gamelist.dto.GameListDTO;
+import com.mila.gamelist.dto.GameMinDTO;
+import com.mila.gamelist.services.GameListService;
+import com.mila.gamelist.services.GameService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/gamelist")
+public class GameListController {
+
+    @Autowired
+    private GameListService gameListService;
+
+    @GetMapping
+    public List<GameListDTO> findAll(){
+        List<GameListDTO> result = gameListService.findAll();
+        return result;
+    }
+
+
+}
